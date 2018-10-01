@@ -744,6 +744,12 @@
       ZCETA(4,15,I) = B(44) * AGLW(8,1,I)
       ZCETA(5,15,I) = KZ(45,I) * DEN(3,I) * E(I)
 !
+      ! GG Mon Oct  1 14:32:23 EDT 2018
+      ! Here I assume that 100% of O+(4Pe) decays to the 834 A tripplet. This is true within a few percent.
+      ! I do not include dissociative ionization of O2, which is ~1% contribution
+      ZCETA(1,16,I) = PHOTOI(4,1,I) ! photoionization of O+(4Pe)
+      ZCETA(2,16,I) = OEI(I) * 0.56 ! e-impact excitation of O+(4Pe), Richards et al. 1988
+      !
       ZETA(1,I)  = ZCETA(1,1,I)+ZCETA(2,1,I)
       ZETA(2,I)  = ZCETA(1,2,I)+ZCETA(2,2,I)+ZCETA(3,2,I)
       ZETA(3,I)  = ZCETA(1,3,I)+ZCETA(2,3,I)+ZCETA(3,3,I) &
@@ -767,6 +773,9 @@
       ZETA(14,I) = ZCETA(1,14,I)+ZCETA(2,14,I)
       ZETA(15,I) = ZCETA(1,15,I)+ZCETA(2,15,I)+ZCETA(3,15,I) &
                   +ZCETA(4,15,I)+ZCETA(5,15,I)
+!
+      ! GG Mon Oct  1 14:41:55 EDT 2018
+      ZETA(16,I) = ZCETA(1,16,I)+ZCETA(2,16,I)
 !
     ENDDO ! bottom of airglow loop
 !

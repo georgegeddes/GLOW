@@ -63,7 +63,7 @@ module cglow
   integer,parameter :: nst=6     ! number of states produced by photoionization/dissociation
   integer,parameter :: nei=10    ! number of states produced by electron impact
   integer,parameter :: nex=12    ! number of excited/ionized species
-  integer,parameter :: nw=15     ! number of airglow emission wavelengths
+  integer,parameter :: nw=16     ! number of airglow emission wavelengths
   integer,parameter :: nc=10     ! number of component production terms for each emission
 
 ! Directory containing data files needed by glow subroutines:
