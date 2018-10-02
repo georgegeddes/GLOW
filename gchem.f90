@@ -745,7 +745,7 @@
       ZCETA(5,15,I) = KZ(45,I) * DEN(3,I) * E(I)
 !
       ! GG Mon Oct  1 14:32:23 EDT 2018
-      ! Here I assume that 100% of O+(4Pe) decays to the 834 A tripplet. This is true within a few percent.
+      ! Here I assume that 100% of O+(4Pe) decays to the 834 A triplet. This is true within a few percent.
       ! I do not include dissociative ionization of O2, which is ~1% contribution
       ZCETA(1,16,I) = PHOTOI(4,1,I) ! photoionization of O+(4Pe)
       ZCETA(2,16,I) = AGLW(NEI,1,I) ! e-impact contribution, fitting Zipf et al. to Jackman et al. form
