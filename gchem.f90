@@ -192,7 +192,7 @@
 
   SUBROUTINE GCHEM
 !
-    use cglow,only: jmax, nmaj, nex, nw, nc, kchem, sza, &
+    use cglow,only: jmax, nmaj, nex, nei, nw, nc, kchem, sza, &
                     zz, zo, zn2, zo2, zno, zns, znd, ze, ztn, zti, zte, &
                     photoi, photod, phono, pia, sion, aglw, &
                     tei, tpi, tir, e=>ecalc, den=>zxden, zeta, zceta, vcb
@@ -748,7 +748,7 @@
       ! Here I assume that 100% of O+(4Pe) decays to the 834 A tripplet. This is true within a few percent.
       ! I do not include dissociative ionization of O2, which is ~1% contribution
       ZCETA(1,16,I) = PHOTOI(4,1,I) ! photoionization of O+(4Pe)
-      ZCETA(2,16,I) = OEI(I) * 0.56 ! e-impact excitation of O+(4Pe), Richards et al. 1988
+      ZCETA(2,16,I) = AGLW(NEI,1,I) ! e-impact contribution, fitting Zipf et al. to Jackman et al. form
       !
       ZETA(1,I)  = ZCETA(1,1,I)+ZCETA(2,1,I)
       ZETA(2,I)  = ZCETA(1,2,I)+ZCETA(2,2,I)+ZCETA(3,2,I)

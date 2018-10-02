@@ -61,7 +61,7 @@
     use cglow,only: nmaj,nbins,jmax,nei,ierr,jlocal, &
                     dip,ener,del,aglw,eheat,sion,phitop,zz,pespec, &
                     sespec,zte,ze,zmaj,uflx,dflx,tez,efrac           ! formerly /cglow/
-    use cglow,only: siga,sigs,pe,sigex,sec,iimaxx,pin                ! formerly /cxsect/
+    use cglow,only: siga,sigs,pe,sigex,sigix,sec,iimaxx,pin          ! formerly /cxsect/
     use cglow,only: ww                                               ! formerly /cxpars/
 
     implicit none
@@ -305,8 +305,12 @@
           do ibb = 1, nei
             aglw(ibb,i,ii) = aglw(ibb,i,ii) + (phiup(ii) + phidwn(ii)) &
                              * sigex(ibb,i,j) * del(j) * zmaj(i,ii)
-          enddo
+         enddo
         enddo
+        ! GG Tue Oct  2 15:23:37 EDT 2018
+        ! HACK: aglw(nei,1,:) is O + e -> O+(4Pe) + 2e rate
+        aglw(nei,1,ii) = aglw(nei,1,ii) + (phiup(ii) + phidwn(ii)) &
+                         * sigix(4,1,j) * del(j) * zmaj(i,ii)
       enddo
 !
 ! Calculate production of secondaries into k bin for energy j bin and add to production:
